@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./install_nvim.sh
+./nvim_setup.sh
