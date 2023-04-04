@@ -60,4 +60,5 @@ end
     })
     use 'kyazdani42/nvim-web-devicons'
     use 'andweeb/presence.nvim'
+    use 'p00f/nvim-ts-rainbow'
 end)
