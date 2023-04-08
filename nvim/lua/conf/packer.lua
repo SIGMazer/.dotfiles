@@ -49,16 +49,21 @@ end
     use 'windwp/nvim-autopairs'
     use 'Mofiqul/dracula.nvim'
 
-    use({
-        "NTBBloodbath/galaxyline.nvim",
-        -- your statusline
-        config = function()
-            require("galaxyline.themes.eviline")
-        end,
-        -- some optional icons
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
-    })
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use 'kyazdani42/nvim-web-devicons'
     use 'andweeb/presence.nvim'
     use 'p00f/nvim-ts-rainbow'
+    use {
+        "nvim-tree/nvim-tree.lua",
+    }
+    use {'kyazdani42/nvim-web-devicons', event = 'VimEnter'}
+
+    use 'hrsh7th/nvim-cmp'
+
+use 'nvim-tree/nvim-web-devicons'
+    use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+
 end)
