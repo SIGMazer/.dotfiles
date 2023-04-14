@@ -8,10 +8,6 @@ require("nvim-tree").setup({
 	folder_arrow = true,
       },
       glyphs = {
-        folder = {
-          arrow_closed = "🗀",
-          arrow_open = "⏷",
-        },
         git = {
           unstaged = "✗",
           staged = "✓",
