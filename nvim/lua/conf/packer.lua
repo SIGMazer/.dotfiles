@@ -65,5 +65,5 @@ end
 
 use 'nvim-tree/nvim-web-devicons'
     use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
-
+    use 'christoomey/vim-tmux-navigator'
 end)
