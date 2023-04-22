@@ -75,4 +75,13 @@ use 'nvim-tree/nvim-web-devicons'
             }
         end,
     })
+    -- packer plugin declaration
+    use({
+        "mfussenegger/nvim-jdtls",
+        config = function()
+            -- https://github.com/fitrh/init.nvim/blob/main/lua/plugin/jdtls/config.lua
+            require("plugin.jdtls.config").attach()
+        end,
+        module = "jdtls",
+    })
 end)
