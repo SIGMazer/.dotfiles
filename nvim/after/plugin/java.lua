@@ -6,6 +6,7 @@ end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')  
 
+
 local workspace_dir = '~/.cache/jdtls/workspace/' .. project_name
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -90,7 +91,7 @@ require('jdtls').start_or_attach(config)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   
 
-  vim.keymap.set("n", "<leader>la", '<cmd>lua require(\'jdtls\').code_action()<CR>',{silent = ture})
+  vim.keymap.set("n", "<leader>lA", '<cmd>lua require(\'jdtls\').code_action()<CR>',{silent = ture})
 
 
 
