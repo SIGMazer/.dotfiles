@@ -63,7 +63,7 @@ end
 
     use 'hrsh7th/nvim-cmp'
 
-use 'nvim-tree/nvim-web-devicons'
+    use 'nvim-tree/nvim-web-devicons'
     use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
     use 'christoomey/vim-tmux-navigator'
     use({
@@ -74,10 +74,5 @@ use 'nvim-tree/nvim-web-devicons'
                 -- or just leave it empty :)
             }
         end,
-    })
-    -- packer plugin declaration
-    use({
-        "mfussenegger/nvim-jdtls",
-        module = "jdtls",
     })
 end)
