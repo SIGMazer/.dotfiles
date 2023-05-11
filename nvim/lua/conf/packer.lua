@@ -86,4 +86,6 @@ end
             "nvim-telescope/telescope.nvim"
         }
     })
+    use 'ianding1/leetcode.vim'
 end)
+

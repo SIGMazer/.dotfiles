@@ -136,6 +136,11 @@ _G.packer_plugins = {
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["leetcode.vim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/leetcode.vim",
+    url = "https://github.com/ianding1/leetcode.vim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
