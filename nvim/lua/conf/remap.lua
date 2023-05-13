@@ -48,6 +48,8 @@ vim.keymap.set("n", "<M-k>", "<C-w>k")
 vim.keymap.set("n", "<M-l>", "<C-w>l")
 
 
+vim.keymap.set("n","<leader>gs",'<Cmd>lua vim.cmd(":AutoGit")<CR>')
+
 vim.keymap.set('n', '<leader>ll', function()
 	vim.g.leetcode_solution_filetype = vim.fn.input("lang> ") 
 end)
