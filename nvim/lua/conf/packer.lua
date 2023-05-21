@@ -23,7 +23,7 @@ end
 	}
 	use( 'nvim-treesitter/playground')
 	use( 'mbbill/undotree')
-	use {
+    use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v1.x',
 		requires = {
@@ -90,6 +90,13 @@ end
         'SIGMazer/nvim-auto-git',
         run='bash ~/.local/share/nvim/site/pack/packer/start/nvim-auto-git/setup.sh',
         post_install = {'UpdateRemotePlugins'}
+    }
+    use {
+        'Shougo/deoplete.nvim',
+        post_install = {'UpdateRemotePlugins'},
+        'Shougo/deoplete.nvim',
+        'roxma/nvim-yarp',
+        'roxma/vim-hug-neovim-rpc',
     }
 end)
 
