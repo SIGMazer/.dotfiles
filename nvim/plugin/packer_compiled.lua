@@ -126,6 +126,11 @@ _G.packer_plugins = {
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["deoplete.nvim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
+    url = "https://github.com/Shougo/deoplete.nvim"
+  },
   ["dracula.nvim"] = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/dracula.nvim",
@@ -206,6 +211,11 @@ _G.packer_plugins = {
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["nvim-yarp"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/nvim-yarp",
+    url = "https://github.com/roxma/nvim-yarp"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -235,6 +245,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-hug-neovim-rpc"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
+    url = "https://github.com/roxma/vim-hug-neovim-rpc"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
