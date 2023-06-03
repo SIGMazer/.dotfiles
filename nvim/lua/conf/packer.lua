@@ -53,11 +53,11 @@ end
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use 'kyazdani42/nvim-web-devicons'
+    use 'ryanoasis/vim-devicons'
     use 'andweeb/presence.nvim'
     use 'p00f/nvim-ts-rainbow'
-    use {
-        "nvim-tree/nvim-tree.lua",
-    }
+    use {"kyazdani42/nvim-tree.lua" }
+    use "kyazdani42/nvim-web-devicons"
     use {'kyazdani42/nvim-web-devicons', event = 'VimEnter'}
 
     use 'hrsh7th/nvim-cmp'
@@ -73,17 +73,6 @@ end
                 -- or just leave it empty :)
             }
         end,
-    })
-    use({
-        "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup()
-        end,
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
     })
     use 'ianding1/leetcode.vim'
     use {
