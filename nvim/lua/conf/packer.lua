@@ -82,9 +82,15 @@ end
     use {
         'Shougo/deoplete.nvim',
         post_install = {'UpdateRemotePlugins'},
-        'Shougo/deoplete.nvim',
         'roxma/nvim-yarp',
         'roxma/vim-hug-neovim-rpc',
+    }
+    use ({ 'projekt0n/github-nvim-theme' })
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
     }
 end)
 
