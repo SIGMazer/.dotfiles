@@ -54,7 +54,7 @@ end
     }
     use 'kyazdani42/nvim-web-devicons'
     use 'ryanoasis/vim-devicons'
-    use 'andweeb/presence.nvim'
+    use 'SIGMazer/presence.nvim'
     use 'p00f/nvim-ts-rainbow'
     use {"kyazdani42/nvim-tree.lua" }
     use "kyazdani42/nvim-web-devicons"
@@ -92,5 +92,6 @@ end
             require('Comment').setup()
         end
     }
+    use 'terryma/vim-multiple-cursors'
 end)
 
