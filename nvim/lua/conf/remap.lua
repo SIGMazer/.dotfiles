@@ -2,7 +2,9 @@ vim.g.mapleader = " "
 vim.keymap.set("n","<leader>e",'<Cmd>lua vim.cmd(":NvimTreeToggle")<CR>')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<leader>t", "<Cmd>:vsplit term://bash<CR>")
 
+vim.keymap.set("t", "<M-w>", "<C-\\><C-n>")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-circumstancesd>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -46,7 +48,6 @@ vim.keymap.set("n", "<M-h>", "<C-w>h")
 vim.keymap.set("n", "<M-j>", "<C-w>j")
 vim.keymap.set("n", "<M-k>", "<C-w>k")
 vim.keymap.set("n", "<M-l>", "<C-w>l")
-
 
 vim.keymap.set("n","<leader>gs",'<Cmd>lua vim.cmd(":AutoGit")<CR>')
 vim.keymap.set("n","<leader>gb",'<Cmd>lua vim.cmd(":AutoGitBranch")<CR>')

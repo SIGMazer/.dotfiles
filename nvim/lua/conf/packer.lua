@@ -93,5 +93,6 @@ end
         end
     }
     use 'terryma/vim-multiple-cursors'
+    use 'nhooyr/neoman.vim'
 end)
 
