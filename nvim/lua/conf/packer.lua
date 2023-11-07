@@ -12,7 +12,7 @@ end
      use { "catppuccin/nvim", as = "catppuccin" }
  
      use {
-	       'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	       'nvim-telescope/telescope.nvim', tag = '0.1.4',
 	       -- or                            , branch = '0.1.x',
 	          requires = { {'nvim-lua/plenary.nvim'} }
 	}
@@ -94,5 +94,19 @@ end
     }
     use 'terryma/vim-multiple-cursors'
     use 'nhooyr/neoman.vim'
+    use 'tpope/vim-dadbod'
+    use 'kristijanhusak/vim-dadbod-ui'
+    use 'kristijanhusak/vim-dadbod-completion'
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
 end)
 
