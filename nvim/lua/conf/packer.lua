@@ -108,5 +108,9 @@ end
             "nvim-telescope/telescope.nvim"
         }
     })
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'wakatime/vim-wakatime'
 end)
 
