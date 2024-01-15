@@ -112,6 +112,5 @@ end
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'wakatime/vim-wakatime'
-    use { 'rose-pine/neovim', as = 'rose-pine' }
 end)
 
