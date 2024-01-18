@@ -1,12 +1,11 @@
-# .zshenv is always sourced.
-# Most ${ENV_VAR} variables should be saved here.
-# It is loaded before .zshrc
 
 export ZDOTDIR=$HOME/.config/zsh/
 
 export XDG_CONFIG_HOME=$HOME/.config/
 
 export fpath=(~/.config/zsh/completions/ $fpath)
+
+autoload bashcompinit && bashcompinit
 
 if [[ $s(command -v rg) ]]; then
     export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g ""'
@@ -24,11 +23,6 @@ fi
 
 
 . "$HOME/.cargo/env"
-
-export PATH=/Users/tjdevries@sourcegraph.com/.sg:$PATH
-if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
-
-if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 export GOPATH=$HOME/projects/
 
@@ -50,6 +44,4 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/home/sgimazer/.nimble/bin:$PATH
 
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 

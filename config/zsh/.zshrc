@@ -1,5 +1,8 @@
 export _TJ_PROFILE=0
 
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
 if [[ $_TJ_PROFILE -eq 1 ]]; then
   zmodload zsh/datetime
   PS4='+$EPOCHREALTIME %N:%i> '
