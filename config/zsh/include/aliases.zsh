@@ -19,29 +19,5 @@ alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias h="history|grep "
-
-alias agi='sudo apt-get install '
-alias agu='sudo apt-get update && sudo apt-get upgrade'
-# {{{3 Disk Aliases
-# This is GOLD for finding out what is taking so much space on your drives!
-alias diskspace="du -S | sort -n -r |more"
-
-# Show me the size (sorted) of only the folders in this directory
-alias folders="find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"
-# }}}
-# }}}
-
-# {{{1 SSH Aliases
-alias offcampus='ssh tjd33@cs-ssh.calvin.edu'
-# }}}
-# {{{ Tree aliases
-alias pt='tree -I "__pycache__|*.pyc" --dirsfirst -v'
-# }}}
-# {{{ Git Aliases
-alias gout='git checkout'
-# }}}
-#
-#
-# Wiki Aliases
-alias viki='cd ~/viki/; nvim'
+alias c='clear'
+alias v='nvim'

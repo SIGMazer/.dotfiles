@@ -112,5 +112,7 @@ end
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'wakatime/vim-wakatime'
+    use 'godlygeek/tabular'
+
 end)
 

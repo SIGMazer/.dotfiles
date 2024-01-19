@@ -69,8 +69,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 sources=(
   'autojump'
   'aliases'
-  'functions'
-  'git'
   'pyenv'
 )
 
