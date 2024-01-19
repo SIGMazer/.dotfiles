@@ -69,7 +69,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 sources=(
   'autojump'
   'aliases'
-  'pyenv'
 )
 
 for s in "${sources[@]}"; do
