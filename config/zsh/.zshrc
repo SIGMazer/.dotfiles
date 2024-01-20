@@ -56,6 +56,9 @@ antigen bundle 'agkozak/zsh-z'
 # antigen theme spaceship-prompt/spaceship-prompt
 # antigen theme robbyrussell
 
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+
+
 antigen apply
 
 eval "$(starship init zsh)"
