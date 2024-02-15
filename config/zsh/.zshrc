@@ -33,7 +33,8 @@ export XDG_CONFIG_HOME=$HOME/.config/
 setopt functionargzero
 setopt hist_ignore_space
 
-## ZSH environment options
+## graphic card
+export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nvidia_icd.json"
 
 
 ## ZSH plugins

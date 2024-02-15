@@ -21,3 +21,4 @@ alias l='ls -CF'
 
 alias c='clear'
 alias v='nvim'
+alias minecraft='java -jar /opt/TLauncher-2.895/TLauncher-2.895.jar'

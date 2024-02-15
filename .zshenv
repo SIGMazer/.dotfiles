@@ -43,5 +43,7 @@ export JAVA_HOME=/usr/lib/jvm/jre-17-openjdk-17.0.8.0.7-1.fc38.x86_64/
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/home/sgimazer/.nimble/bin:$PATH
 
+export OPENAI_API_KEY="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"
+
 
 
