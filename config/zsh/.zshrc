@@ -23,6 +23,16 @@ export SHELL=/bin/zsh
 export LANG=en_US.UTF8
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-17.0.9.0.9-3.fc38.x86_64/"
+export HADOOP_HOME="/opt/hadoop/"
+export HADOOP_INSTALL=$HADOOP_HOME 
+export HADOOP_MAPRED_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_HOME=$HADOOP_HOME 
+export HADOOP_YARN_HOME=$HADOOP_HOME 
+export HADOOP_HDFS_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native 
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin 
+
 ## Import locations
 export ZSH_CUSTOM=~/.config/zsh/custom/
 export ZSH_ENV_HOME=$HOME/
@@ -249,9 +259,6 @@ export NVM_COMPLETION=true
 export NVM_DIR=$HOME/".nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-if hash yarn 2>/dev/null; then
-  export PATH="$PATH:$(yarn global bin)"
-fi
 
 export DENO_INSTALL="/home/tjdevries/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
