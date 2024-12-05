@@ -1,4 +1,4 @@
 require("conf")
 
-vim.g.leetcode_browser='brave'
+vim.g.leetcode_browser='firefox'
 

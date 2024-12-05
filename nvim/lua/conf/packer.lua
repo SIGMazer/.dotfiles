@@ -74,7 +74,6 @@ end
             }
         end,
     })
-    use 'ianding1/leetcode.vim'
     use {
         'SIGMazer/nvim-auto-git',
         post_install = {'UpdateRemotePlugins'}
@@ -108,11 +107,12 @@ end
             "nvim-telescope/telescope.nvim"
         }
     })
-    use 'mfussenegger/nvim-dap'
-    use 'rcarriga/nvim-dap-ui'
-    use 'theHamsta/nvim-dap-virtual-text'
     use 'wakatime/vim-wakatime'
     use 'godlygeek/tabular'
+    use "OmniSharp/omnisharp-vim"
+    use {'neoclide/coc.nvim', branch = 'release'}
+    use 'dense-analysis/ale'
 
+    use {'habamax/vim-godot', evnet = 'VimEnter'}
 end)
 

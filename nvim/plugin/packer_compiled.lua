@@ -91,6 +91,11 @@ _G.packer_plugins = {
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ale = {
+    loaded = true,
+    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/ale",
+    url = "https://github.com/dense-analysis/ale"
+  },
   ["auto-save.nvim"] = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0" },
     loaded = true,
@@ -132,6 +137,11 @@ _G.packer_plugins = {
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["coc.nvim"] = {
+    loaded = true,
+    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
+  },
   ["deoplete.nvim"] = {
     loaded = true,
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
@@ -151,11 +161,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
-  },
-  ["leetcode.vim"] = {
-    loaded = true,
-    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/leetcode.vim",
-    url = "https://github.com/ianding1/leetcode.vim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -202,21 +207,6 @@ _G.packer_plugins = {
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    loaded = true,
-    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
-  ["nvim-dap-virtual-text"] = {
-    loaded = true,
-    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -246,6 +236,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/nvim-yarp",
     url = "https://github.com/roxma/nvim-yarp"
+  },
+  ["omnisharp-vim"] = {
+    loaded = true,
+    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/omnisharp-vim",
+    url = "https://github.com/OmniSharp/omnisharp-vim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -302,6 +297,11 @@ _G.packer_plugins = {
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
   },
+  ["vim-godot"] = {
+    loaded = true,
+    path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/vim-godot",
+    url = "https://github.com/habamax/vim-godot"
+  },
   ["vim-hug-neovim-rpc"] = {
     loaded = true,
     path = "/home/sgimazer/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
@@ -325,14 +325,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
 -- Config for: ChatGPT.nvim
 time([[Config for ChatGPT.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0", "config", "ChatGPT.nvim")
 time([[Config for ChatGPT.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: auto-save.nvim
 time([[Config for auto-save.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")

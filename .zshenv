@@ -22,7 +22,6 @@ else
 fi
 
 
-. "$HOME/.cargo/env"
 
 export GOPATH=$HOME/projects/
 
