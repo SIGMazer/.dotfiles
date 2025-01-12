@@ -48,6 +48,7 @@ export PATH=$PATH:"/opt/mssql-tools/bin/"
 ## ZSH options
 setopt functionargzero
 setopt hist_ignore_space
+export NODE_OPTIONS="--max-old-space-size=24560"
 
 ## graphic card
 export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nvidia_icd.json"
@@ -420,3 +421,7 @@ ghce() {
 	GH_DEBUG="$GH_DEBUG" gh copilot explain "$@"
 }
 export PATH="$PATH:/opt/mssql-tools18/bin"
+export PATH=/opt/azuredatastudio-linux-x64/bin/:$PATH
+export PATH="/opt/JetBrains Rider-2024.1.4/bin/:$PATH"
+
+export PATH="$HOME/.composer/vendor/bin:$PATH"

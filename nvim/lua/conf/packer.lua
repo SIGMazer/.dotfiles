@@ -9,6 +9,7 @@ end
    -- Packer can manage itself
      use 'wbthomason/packer.nvim'
 
+
      use { "catppuccin/nvim", as = "catppuccin" }
  
      use {
@@ -47,6 +48,8 @@ end
 	}
     use 'windwp/nvim-autopairs'
     use 'Mofiqul/dracula.nvim'
+    use 'vim-scripts/LargeFile'
+
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -56,7 +59,7 @@ end
     use 'ryanoasis/vim-devicons'
     use 'SIGMazer/presence.nvim'
     use 'p00f/nvim-ts-rainbow'
-    use {"kyazdani42/nvim-tree.lua" }
+    -- use {"kyazdani42/nvim-tree.lua" }
     use "kyazdani42/nvim-web-devicons"
     use {'kyazdani42/nvim-web-devicons', event = 'VimEnter'}
 
