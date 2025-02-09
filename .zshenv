@@ -46,3 +46,4 @@ export OPENAI_API_KEY="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"
 
 
 
+. "$HOME/.cargo/env"

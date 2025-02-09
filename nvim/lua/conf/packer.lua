@@ -114,7 +114,8 @@ end
     use 'godlygeek/tabular'
     use "OmniSharp/omnisharp-vim"
     use {'neoclide/coc.nvim', branch = 'release'}
-    use 'dense-analysis/ale'
+   use 'dense-analysis/ale'
+   use 'Brainrotlang/brainrot-vim-plugin'
 
     use {'habamax/vim-godot', evnet = 'VimEnter'}
 end)
