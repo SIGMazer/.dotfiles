@@ -118,5 +118,14 @@ end
    use 'Brainrotlang/brainrot-vim-plugin'
 
     use {'habamax/vim-godot', evnet = 'VimEnter'}
+
+    use {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup {
+            }
+        end
+    }
+    use "tpope/vim-fugitive"
 end)
 

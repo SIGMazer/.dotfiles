@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n","<leader>e",'<Cmd>Ex<CR>')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "<leader>t", "<Cmd>:vsplit term://bash<CR>")
 
 vim.keymap.set("t", "<M-w>", "<C-\\><C-n>")
 vim.keymap.set("n", "J", "mzJ`z")
@@ -12,8 +11,39 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 
+
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- allow for clipboard copy paste
+if vim.g.neovide then
+    vim.keymap.set("n", "<leader>p", [["+p]])
+    vim.keymap.set("n", "<leader>P", [["+P]])
+    -- change current working directory
+    vim.keymap.set("n", "<leader>cd", "<cmd>lcd %:p:h<CR>:pwd<CR>")
+else
+    vim.keymap.set("n", "<leader>p", [["*p]])
+    vim.keymap.set("n", "<leader>P", [["*P]])
+end
+
+
+vim.keymap.set("n", "<leader>tt",function() 
+    vim.cmd.vnew()
+    vim.cmd.terminal()
+    vim.cmd.wincmd("L")
+end)
+
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+
+-- split resize
+vim.keymap.set("n", "<C-S-j>", "<C-w>-")
+vim.keymap.set("n", "<C-S-k>", "<C-w>+")
+vim.keymap.set("n", "<C-S-h>", "<C-w><")
+vim.keymap.set("n", "<C-S-l>", "<C-w>>")
+
+-- focus mode
+vim.keymap.set("n", "<leader>m", "<cmd>only<CR>")
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
@@ -25,7 +55,6 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("i", "<M-w>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -43,14 +72,11 @@ end)
 vim.keymap.set("n", "<leader>h", ":split ")
 vim.keymap.set("n", "<leader>v", ":vsplit ")
 
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-vim.keymap.set("n", "<M-h>", "<C-w>h")
-vim.keymap.set("n", "<M-j>", "<C-w>j")
-vim.keymap.set("n", "<M-k>", "<C-w>k")
-vim.keymap.set("n", "<M-l>", "<C-w>l")
-
-vim.keymap.set("n","<leader>gs",'<Cmd>lua vim.cmd(":AutoGit")<CR>')
-vim.keymap.set("n","<leader>gb",'<Cmd>lua vim.cmd(":AutoGitBranch")<CR>')
 
 vim.keymap.set('n', '<leader>ll', function()
 	vim.g.leetcode_solution_filetype = vim.fn.input("lang> ") 

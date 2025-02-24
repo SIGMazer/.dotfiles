@@ -420,8 +420,17 @@ ghce() {
 
 	GH_DEBUG="$GH_DEBUG" gh copilot explain "$@"
 }
+discordInstall(){
+    tar xvf ~/Downloads/discord*
+    sudo rm -rf /opt/Discord
+    sudo mv Discord /opt/
+}
 export PATH="$PATH:/opt/mssql-tools18/bin"
 export PATH=/opt/azuredatastudio-linux-x64/bin/:$PATH
 export PATH="/opt/JetBrains Rider-2024.1.4/bin/:$PATH"
 
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/opt/:$PATH"
+alias antlr4="java -jar /usr/local/lib/antlr-4.13.1-complete.jar"
+alias grun="java org.antlr.v4.gui.TestRig"
+
