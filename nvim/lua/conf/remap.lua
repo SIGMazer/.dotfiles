@@ -11,9 +11,8 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 
-
--- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
+
 
 -- allow for clipboard copy paste
 if vim.g.neovide then
@@ -26,6 +25,12 @@ else
     vim.keymap.set("n", "<leader>P", [["*P]])
 end
 
+-- resize the GUI in neovide
+if vim.g.neovide == true then
+  vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
+end
 
 vim.keymap.set("n", "<leader>tt",function() 
     vim.cmd.vnew()
@@ -56,9 +61,8 @@ vim.keymap.set("i", "<M-w>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz") vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })

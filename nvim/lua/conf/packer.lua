@@ -128,5 +128,6 @@ end
     }
     use "tpope/vim-fugitive"
     use "tpope/vim-dispatch"
+    use "mhinz/vim-startify"
 end)
 
