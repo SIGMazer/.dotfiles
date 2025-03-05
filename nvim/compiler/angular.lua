@@ -5,7 +5,7 @@ end
 
 vim.g.current_compiler = 'angular'
 
-vim.opt_local.makeprg = 'NODE_OPTIONS=--max-old-space-size=24561 ng serve -o --watch'
+vim.opt_local.makeprg = 'NODE_OPTIONS=--max-old-space-size=16128 ng serve -o --watch'
 
 -- typescript errorformat
 vim.opt_local.errorformat = vim.opt_local.errorformat + {

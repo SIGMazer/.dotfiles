@@ -48,7 +48,7 @@ export PATH=$PATH:"/opt/mssql-tools/bin/"
 ## ZSH options
 setopt functionargzero
 setopt hist_ignore_space
-export NODE_OPTIONS="--max-old-space-size=24560"
+export NODE_OPTIONS="--max-old-space-size=22560"
 
 ## graphic card
 export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nvidia_icd.json"
@@ -422,6 +422,7 @@ ghce() {
 }
 discordInstall(){
     tar xvf ~/Downloads/discord*
+    rm ~/Downloads/discord*
     sudo rm -rf /opt/Discord
     sudo mv Discord /opt/
 }
