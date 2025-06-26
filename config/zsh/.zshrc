@@ -281,7 +281,7 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+# . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
         export PATH="/opt/homebrew/anaconda3/bin:$PATH"
     fi
@@ -421,6 +421,7 @@ ghce() {
 	GH_DEBUG="$GH_DEBUG" gh copilot explain "$@"
 }
 discordInstall(){
+    wget -O ~/Downloads/discord.tar.gz "https://discord.com/api/download?platform=linux&format=tar.gz"
     tar xvf ~/Downloads/discord*
     rm ~/Downloads/discord*
     sudo rm -rf /opt/Discord
@@ -434,4 +435,10 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/opt/:$PATH"
 alias antlr4="java -jar /usr/local/lib/antlr-4.13.1-complete.jar"
 alias grun="java org.antlr.v4.gui.TestRig"
+
+
+. "$HOME/.local/bin/env"
+
+export PATH=$PATH:/home/sigmazer/.spicetify
+export PATH=$PATH:"/opt/fasm/"
 
