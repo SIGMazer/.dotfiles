@@ -47,8 +47,6 @@ end
 		}
 	}
     use 'windwp/nvim-autopairs'
-    use 'Mofiqul/dracula.nvim'
-    use 'vim-scripts/LargeFile'
 
 
     use {
@@ -94,30 +92,11 @@ end
             require('Comment').setup()
         end
     }
-    use 'terryma/vim-multiple-cursors'
     use 'nhooyr/neoman.vim'
-    use 'tpope/vim-dadbod'
-    use 'kristijanhusak/vim-dadbod-ui'
-    use 'kristijanhusak/vim-dadbod-completion'
-    use({
-        "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup()
-        end,
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
     use 'wakatime/vim-wakatime'
     use 'godlygeek/tabular'
     use "OmniSharp/omnisharp-vim"
-    use {'neoclide/coc.nvim', branch = 'release'}
-   use 'dense-analysis/ale'
    use 'Brainrotlang/brainrot-vim-plugin'
-
-    use {'habamax/vim-godot', evnet = 'VimEnter'}
 
     use {
         "ahmedkhalf/project.nvim",

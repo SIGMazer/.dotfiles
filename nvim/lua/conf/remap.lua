@@ -13,7 +13,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-
 -- allow for clipboard copy paste
 if vim.g.neovide then
     vim.keymap.set("n", "<leader>p", [["+p]])
@@ -39,6 +38,7 @@ vim.keymap.set("n", "<leader>tt",function()
 end)
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 
 
 -- split resize
