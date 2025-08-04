@@ -25,4 +25,3 @@ alias vim='~/opt/neovide.AppImage'
 alias minecraft='java -jar /opt/TLauncher-2.895/TLauncher-2.895.jar'
 alias dotnet='~/.dotnet/dotnet'
 alias gccrs='~/gccrs-install/bin/gccrs -frust-incomplete-and-experimental-compiler-do-not-use'
-
