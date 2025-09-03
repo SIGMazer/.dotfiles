@@ -443,3 +443,4 @@ export PATH=$PATH:/home/sigmazer/.spicetify
 export PATH=$PATH:"/opt/fasm/"
 
 export PATH=$PATH:'/var/lib/flatpak/app/fr.handbrake.ghb/x86_64/stable/active/export/bin'
+export PATH=$PATH:/usr/local/go/bin

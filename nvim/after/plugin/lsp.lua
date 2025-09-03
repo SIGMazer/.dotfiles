@@ -70,3 +70,20 @@ require'lspconfig'.clangd.setup{
   cmd = { "clangd", "--compile-commands-dir=." },
 }
 
+local lspconfig = require('lspconfig')
+
+require('lspconfig').omnisharp.setup {
+    cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+    root_dir = function (fname)
+        return lspconfig.util.root_pattern("*.csproj")(fname)
+            or lspconfig.util.root_pattern("*.sln")(fname)
+            or lspconfig.util.find_git_ancestor(fname)
+    end,
+    settings = {
+        -- sdk = {
+        --     path = "/home/sigmazer/.dotnet/sdk/6.0.424/"
+        -- },
+    }
+}
+vim.lsp.set_log_level("ERROR")
+
