@@ -108,5 +108,25 @@ end
     use "tpope/vim-fugitive"
     use "tpope/vim-dispatch"
     use "mhinz/vim-startify"
+        -- Plenary dependency
+    use 'nvim-lua/plenary.nvim'
+
+    -- Copilot Chat
+    use {
+        'CopilotC-Nvim/CopilotChat.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('CopilotChat').setup({
+                layout = "float",  -- floating window layout like VSCode
+                keymaps = {
+                    close = "<Esc>",
+                    submit = "<CR>",
+                    scroll_up = "<C-u>",
+                    scroll_down = "<C-d>",
+                },
+            })
+        end
+    }
+
 end)
 
