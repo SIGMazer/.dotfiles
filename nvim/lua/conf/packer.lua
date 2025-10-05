@@ -24,28 +24,23 @@ end
 	}
 	use( 'nvim-treesitter/playground')
 	use( 'mbbill/undotree')
-    use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+    
+    -- LSP Support (using native Neovim 0.11+ LSP)
+    use {'williamboman/mason.nvim'}           -- LSP server installer
+    use {'williamboman/mason-lspconfig.nvim'} -- Mason integration with lspconfig
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},         -- Required
-			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			{'hrsh7th/cmp-buffer'},       -- Optional
-			{'hrsh7th/cmp-path'},         -- Optional
-			{'saadparwaiz1/cmp_luasnip'}, -- Optional
-			{'hrsh7th/cmp-nvim-lua'},     -- Optional
+    -- Autocompletion
+    use {'hrsh7th/nvim-cmp'}         -- Completion engine
+    use {'hrsh7th/cmp-nvim-lsp'}     -- LSP source for nvim-cmp
+    use {'hrsh7th/cmp-buffer'}       -- Buffer completions
+    use {'hrsh7th/cmp-path'}         -- Path completions
+    use {'saadparwaiz1/cmp_luasnip'} -- Snippet completions
+    use {'hrsh7th/cmp-nvim-lua'}     -- Lua completions
 
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},             -- Required
-			{'rafamadriz/friendly-snippets'}, -- Optional
-		}
-	}
+    -- Snippets
+    use {'L3MON4D3/LuaSnip'}             -- Snippet engine
+    use {'rafamadriz/friendly-snippets'} -- Predefined snippets
+
     use 'windwp/nvim-autopairs'
 
 
