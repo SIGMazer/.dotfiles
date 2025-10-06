@@ -25,6 +25,29 @@ end
 	use( 'nvim-treesitter/playground')
 	use( 'mbbill/undotree')
     
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v1.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {'williamboman/mason.nvim'},           -- Optional
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},         -- Required
+            {'hrsh7th/cmp-nvim-lsp'},     -- Required
+            {'hrsh7th/cmp-buffer'},       -- Optional
+            {'hrsh7th/cmp-path'},         -- Optional
+            {'saadparwaiz1/cmp_luasnip'}, -- Optional
+            {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},             -- Required
+            {'rafamadriz/friendly-snippets'}, -- Optional
+        }
+    }
+
     -- LSP Support (using native Neovim 0.11+ LSP)
     use {'williamboman/mason.nvim'}           -- LSP server installer
     use {'williamboman/mason-lspconfig.nvim'} -- Mason integration with lspconfig
@@ -121,6 +144,37 @@ end
                 },
             })
         end
+    }
+    
+    -- Required plugins
+    use 'nvim-lua/plenary.nvim'
+    use 'MunifTanjim/nui.nvim'
+    use 'MeanderingProgrammer/render-markdown.nvim'
+
+    -- Optional dependencies
+    use 'hrsh7th/nvim-cmp'
+    use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+    use 'HakonHarnes/img-clip.nvim'
+    use 'zbirenbaum/copilot.lua'
+    use 'stevearc/dressing.nvim' -- for enhanced input UI
+    use 'folke/snacks.nvim' -- for modern input UI
+
+    -- Avante.nvim with build process
+    use {
+        'yetone/avante.nvim',
+        branch = 'main',
+        run = 'make',
+            config = function()
+            require('avante').setup({
+                provider = "copilot",  -- <- tells Avante to use Copilot
+                mappings = {
+                    ask  = "<leader>aa",
+                    edit = "<leader>ae",
+                    diff = "<leader>ad",
+                },
+            })
+        end
+
     }
 
 end)

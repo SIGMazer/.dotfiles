@@ -81,7 +81,7 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/Comment.nvim"
   },
   ["CopilotChat.nvim"] = {
-    config = { "\27LJ\2\n£\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\fkeymaps\1\0\4\14scroll_up\n<C-u>\vsubmit\t<CR>\nclose\n<Esc>\16scroll_down\n<C-d>\1\0\2\fkeymaps\0\vlayout\nfloat\nsetup\16CopilotChat\frequire\0" },
+    config = { "\27LJ\2\n£\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\fkeymaps\1\0\4\16scroll_down\n<C-d>\vsubmit\t<CR>\nclose\n<Esc>\14scroll_up\n<C-u>\1\0\2\fkeymaps\0\vlayout\nfloat\nsetup\16CopilotChat\frequire\0" },
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/CopilotChat.nvim",
     url = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
@@ -96,6 +96,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
     url = "https://github.com/Pocco81/auto-save.nvim"
+  },
+  ["avante.nvim"] = {
+    config = { "\27LJ\2\nÕ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\fwindows\1\0\2\nwidth\4Í™³æ\fÌ™óþ\3\vborder\frounded\rmappings\1\0\3\tdiff\15<leader>ad\tedit\15<leader>ae\bask\15<leader>aa\1\0\3\fwindows\0\rprovider\fcopilot\rmappings\0\nsetup\vavante\frequire\0" },
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/avante.nvim",
+    url = "https://github.com/yetone/avante.nvim"
   },
   ["barbar.nvim"] = {
     loaded = true,
@@ -137,10 +143,20 @@ _G.packer_plugins = {
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
+  },
   ["deoplete.nvim"] = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
     url = "https://github.com/Shougo/deoplete.nvim"
+  },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -151,6 +167,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
+  },
+  ["img-clip.nvim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -176,6 +197,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/neoman.vim",
     url = "https://github.com/nhooyr/neoman.vim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-auto-git"] = {
     loaded = true,
@@ -248,6 +274,16 @@ _G.packer_plugins = {
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  ["render-markdown.nvim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/render-markdown.nvim",
+    url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+  },
+  ["snacks.nvim"] = {
+    loaded = true,
+    path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/snacks.nvim",
+    url = "https://github.com/folke/snacks.nvim"
+  },
   tabular = {
     loaded = true,
     path = "/home/sigmazer/.local/share/nvim/site/pack/packer/start/tabular",
@@ -301,22 +337,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: CopilotChat.nvim
-time([[Config for CopilotChat.nvim]], true)
-try_loadstring("\27LJ\2\n£\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\fkeymaps\1\0\4\14scroll_up\n<C-u>\vsubmit\t<CR>\nclose\n<Esc>\16scroll_down\n<C-d>\1\0\2\fkeymaps\0\vlayout\nfloat\nsetup\16CopilotChat\frequire\0", "config", "CopilotChat.nvim")
-time([[Config for CopilotChat.nvim]], false)
--- Config for: auto-save.nvim
-time([[Config for auto-save.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")
-time([[Config for auto-save.nvim]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
-time([[Config for project.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
+time([[Config for project.nvim]], false)
+-- Config for: auto-save.nvim
+time([[Config for auto-save.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")
+time([[Config for auto-save.nvim]], false)
+-- Config for: CopilotChat.nvim
+time([[Config for CopilotChat.nvim]], true)
+try_loadstring("\27LJ\2\n£\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\fkeymaps\1\0\4\16scroll_down\n<C-d>\vsubmit\t<CR>\nclose\n<Esc>\14scroll_up\n<C-u>\1\0\2\fkeymaps\0\vlayout\nfloat\nsetup\16CopilotChat\frequire\0", "config", "CopilotChat.nvim")
+time([[Config for CopilotChat.nvim]], false)
+-- Config for: avante.nvim
+time([[Config for avante.nvim]], true)
+try_loadstring("\27LJ\2\nÕ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\fwindows\1\0\2\nwidth\4Í™³æ\fÌ™óþ\3\vborder\frounded\rmappings\1\0\3\tdiff\15<leader>ad\tedit\15<leader>ae\bask\15<leader>aa\1\0\3\fwindows\0\rprovider\fcopilot\rmappings\0\nsetup\vavante\frequire\0", "config", "avante.nvim")
+time([[Config for avante.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
