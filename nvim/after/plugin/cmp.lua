@@ -1,6 +1,24 @@
-
 local cmp = require'cmp'
 local luasnip = require'luasnip'
+
+-- Helper function to check if Copilot suggestion is visible
+local function copilot_suggestion_visible()
+  local copilot_ok, suggestion = pcall(require, "copilot.suggestion")
+  if copilot_ok then
+    return suggestion.is_visible()
+  end
+  return false
+end
+
+-- Helper function to accept Copilot suggestion
+local function accept_copilot()
+  local copilot_ok, suggestion = pcall(require, "copilot.suggestion")
+  if copilot_ok and suggestion.is_visible() then
+    suggestion.accept()
+    return true
+  end
+  return false
+end
 
 -- Helper function for Tab completion
 local has_words_before = function()
@@ -24,29 +42,41 @@ cmp.setup({
     end,
   },
   mapping = {
-    -- Tab for smart completion and indentation
+    -- Smart Tab: Copilot > cmp > snippets > completion > indentation
     ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        -- If completion menu is visible, cycle through items
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        -- If snippet is available, expand or jump
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        -- If there are words before cursor, trigger completion
-        cmp.complete()
-      elseif is_whitespace_or_beginning() then
-        -- If at beginning of line or in whitespace, use for indentation
-        fallback()
-      else
-        -- Default fallback
-        fallback()
+      -- Priority 1: Accept Copilot suggestion if visible
+      if copilot_suggestion_visible() then
+        if accept_copilot() then
+          return
+        end
       end
+      
+      -- Priority 2: Navigate cmp menu if visible
+      if cmp.visible() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        return
+      end
+      
+      -- Priority 3: Expand or jump in snippet
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+        return
+      end
+      
+      -- Priority 4: Trigger completion if we have words before cursor
+      if has_words_before() then
+        cmp.complete()
+        return
+      end
+      
+      -- Priority 5: Default indentation for whitespace/beginning of line
+      fallback()
     end, { 'i', 's' }),
     
+    -- Smart Shift-Tab: Reverse navigation
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
@@ -54,19 +84,27 @@ cmp.setup({
       end
     end, { 'i', 's' }),
     
-    -- Enter for confirmation and new lines
+    -- Smart Enter: Accept completion or create new line
     ['<CR>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        -- If completion menu is visible, confirm selection
-        cmp.confirm({ select = true })
+      if cmp.visible() and cmp.get_selected_entry() then
+        cmp.confirm({ select = false })
       else
-        -- Default: insert new line
         fallback()
       end
     end, { 'i', 's' }),
     
-    -- Escape to close
-    ['<Esc>'] = cmp.mapping.abort(),
+    -- Escape: Close completion and Copilot
+    ['<Esc>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+      end
+      -- Also dismiss Copilot suggestion
+      local copilot_ok, suggestion = pcall(require, "copilot.suggestion")
+      if copilot_ok and suggestion.is_visible() then
+        suggestion.dismiss()
+      end
+      fallback()
+    end, { 'i', 's' }),
     
     -- Additional mappings for better control
     ['<C-Space>'] = cmp.mapping.complete(), -- Force completion trigger
@@ -87,62 +125,67 @@ cmp.setup({
     })
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp', priority = 1000 },
-    { name = 'luasnip', priority = 750 },
-    { name = 'copilot', priority = 900 },
+    { 
+      name = 'nvim_lsp', 
+      priority = 1000,
+      -- Reduce LSP completion frequency to avoid conflicts with Copilot
+      keyword_length = 2,
+      max_item_count = 20,
+    },
+    { 
+      name = 'luasnip', 
+      priority = 750,
+      keyword_length = 2,
+    },
   }, {
-    { name = 'buffer', priority = 500, keyword_length = 3 },
-    { name = 'path', priority = 250 },
-    { name = 'git', priority = 200 },
-    { name = 'emoji', priority = 100 },
-    { name = 'calc', priority = 100 },
-    { name = 'treesitter', priority = 300 },
+    { 
+      name = 'buffer', 
+      priority = 500, 
+      keyword_length = 3,
+      max_item_count = 10,
+    },
+    { 
+      name = 'path', 
+      priority = 250,
+      keyword_length = 3,
+    },
   }),
   
-  -- Auto-completion settings
+  -- Auto-completion settings optimized for Copilot integration
   completion = {
-    completeopt = 'menu,menuone,noinsert,noselect',
-    keyword_length = 1,
-    autocomplete = {
-      cmp.TriggerEvent.TextChanged,
-      cmp.TriggerEvent.InsertEnter,
-      cmp.TriggerEvent.CompleteDone,
-    },
+    completeopt = 'menu,menuone,noselect', -- Don't auto-select to avoid conflicts
+    keyword_length = 2, -- Require at least 2 characters
+    autocomplete = false, -- Disable automatic triggering, use manual only
   },
   
-  -- Performance settings
+  -- Performance settings optimized for Copilot coexistence
   performance = {
-    debounce = 60,
-    throttle = 30,
-    fetching_timeout = 500,
+    debounce = 100, -- Slightly slower to let Copilot be primary
+    throttle = 50,
+    fetching_timeout = 300, -- Faster timeout
+    max_view_entries = 15, -- Fewer entries to reduce noise
   },
   
-  -- Experimental features for better completion
+  -- Experimental features
   experimental = {
-    ghost_text = true,
+    ghost_text = false, -- Disable to avoid conflicts with Copilot
   },
   
-  -- Enhanced UI formatting
+  -- Simplified UI formatting for less visual noise
   formatting = {
     format = function(entry, vim_item)
-      -- Add icons for different sources
       local icons = {
-        nvim_lsp = '🔧',
-        luasnip = '📝',
-        copilot = '🤖',
-        buffer = '📄',
-        path = '📁',
-        git = '🌿',
-        emoji = '😀',
-        calc = '🧮',
-        treesitter = '🌳',
+        nvim_lsp = '󰒋',
+        luasnip = '󰩫',
+        buffer = '󰈔',
+        path = '󰝰',
       }
       
-      vim_item.menu = icons[entry.source.name] or '❓'
+      vim_item.menu = icons[entry.source.name] or ''
       
-      -- Truncate long items
-      if vim_item.abbr and #vim_item.abbr > 50 then
-        vim_item.abbr = vim_item.abbr:sub(1, 47) .. '...'
+      -- Truncate very long items
+      if vim_item.abbr and #vim_item.abbr > 40 then
+        vim_item.abbr = vim_item.abbr:sub(1, 37) .. '...'
       end
       
       return vim_item
@@ -176,6 +219,35 @@ cmp.setup({
     },
   },
 })
+
+-- Copilot configuration for seamless integration
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+
+-- Configure Copilot to work nicely with cmp
+local copilot_ok, copilot = pcall(require, "copilot")
+if copilot_ok then
+  copilot.setup({
+    suggestion = {
+      enabled = true,
+      auto_trigger = true,
+      debounce = 75,
+      keymap = {
+        accept = false, -- We handle this in cmp mapping
+        accept_word = false,
+        accept_line = false,
+        next = "<M-]>",
+        prev = "<M-[>",
+        dismiss = false, -- We handle this in cmp mapping
+      },
+    },
+    panel = { enabled = false }, -- We don't need the panel
+    copilot_node_command = 'node',
+  })
+end
+
+-- Disable default Copilot keymaps to avoid conflicts
+vim.api.nvim_set_keymap('i', '<Tab>', '', { noremap = true, silent = true })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
