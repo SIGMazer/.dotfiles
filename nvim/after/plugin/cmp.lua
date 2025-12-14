@@ -86,8 +86,8 @@ cmp.setup({
     
     -- Smart Enter: Accept completion or create new line
     ['<CR>'] = cmp.mapping(function(fallback)
-      if cmp.visible() and cmp.get_selected_entry() then
-        cmp.confirm({ select = false })
+      if cmp.visible() then
+        cmp.confirm({ select = true }) -- Auto-select and confirm first item
       else
         fallback()
       end
@@ -128,14 +128,13 @@ cmp.setup({
     { 
       name = 'nvim_lsp', 
       priority = 1000,
-      -- Reduce LSP completion frequency to avoid conflicts with Copilot
-      keyword_length = 2,
+      keyword_length = 1, -- Trigger faster
       max_item_count = 20,
     },
     { 
       name = 'luasnip', 
       priority = 750,
-      keyword_length = 2,
+      keyword_length = 1,
     },
   }, {
     { 
@@ -147,23 +146,25 @@ cmp.setup({
     { 
       name = 'path', 
       priority = 250,
-      keyword_length = 3,
+      keyword_length = 2,
     },
   }),
   
   -- Auto-completion settings optimized for Copilot integration
   completion = {
-    completeopt = 'menu,menuone,noselect', -- Don't auto-select to avoid conflicts
-    keyword_length = 2, -- Require at least 2 characters
-    autocomplete = false, -- Disable automatic triggering, use manual only
+    completeopt = 'menu,menuone,noinsert', -- Auto-select first item
+    keyword_length = 1, -- Trigger after 1 character for faster completions
+    autocomplete = {
+      cmp.TriggerEvent.TextChanged,
+    },
   },
   
   -- Performance settings optimized for Copilot coexistence
   performance = {
-    debounce = 100, -- Slightly slower to let Copilot be primary
-    throttle = 50,
-    fetching_timeout = 300, -- Faster timeout
-    max_view_entries = 15, -- Fewer entries to reduce noise
+    debounce = 100, -- Faster for more responsive completion
+    throttle = 40,
+    fetching_timeout = 500,
+    max_view_entries = 15, -- Show fewer items, best ones first
   },
   
   -- Experimental features
@@ -204,20 +205,24 @@ cmp.setup({
     }),
   },
   
-  -- Enhanced sorting
+  -- Enhanced sorting - prioritize best matches first
   sorting = {
+    priority_weight = 2,
     comparators = {
+      cmp.config.compare.exact, -- Exact matches first
+      cmp.config.compare.locality, -- Nearby in file
+      cmp.config.compare.recently_used, -- Recently used
+      cmp.config.compare.score, -- Fuzzy match score
       cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-      cmp.config.compare.recently_used,
-      cmp.config.compare.locality,
       cmp.config.compare.kind,
       cmp.config.compare.sort_text,
       cmp.config.compare.length,
       cmp.config.compare.order,
     },
   },
+  
+  -- Preselect first item automatically
+  preselect = cmp.PreselectMode.Item,
 })
 
 -- Copilot configuration for seamless integration
@@ -248,6 +253,39 @@ end
 
 -- Disable default Copilot keymaps to avoid conflicts
 vim.api.nvim_set_keymap('i', '<Tab>', '', { noremap = true, silent = true })
+
+-- Filetype-specific completion settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python", "lua", "javascript", "typescript" },
+  callback = function()
+    -- Ensure completion is more responsive for these languages
+    vim.opt_local.updatetime = 200
+  end,
+})
+
+-- Debug helper to check if completion is working
+vim.api.nvim_create_user_command("CmpStatus", function()
+  local sources = require('cmp').get_config().sources
+  local active_sources = {}
+  for _, source_group in ipairs(sources) do
+    for _, source in ipairs(source_group) do
+      table.insert(active_sources, source.name)
+    end
+  end
+  vim.notify("Active cmp sources: " .. table.concat(active_sources, ", "), vim.log.levels.INFO)
+  
+  -- Check LSP clients
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  local client_names = {}
+  for _, client in ipairs(clients) do
+    table.insert(client_names, client.name)
+  end
+  if #client_names > 0 then
+    vim.notify("Active LSP clients: " .. table.concat(client_names, ", "), vim.log.levels.INFO)
+  else
+    vim.notify("No LSP clients attached to current buffer", vim.log.levels.WARN)
+  end
+end, { desc = "Show cmp and LSP status" })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
