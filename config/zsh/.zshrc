@@ -441,6 +441,7 @@ alias grun="java org.antlr.v4.gui.TestRig"
 
 export PATH=$PATH:/home/sigmazer/.spicetify
 export PATH=$PATH:"/opt/fasm/"
+export PATH=$PATH:"/opt/Steam/"
 
 export PATH=$PATH:'/var/lib/flatpak/app/fr.handbrake.ghb/x86_64/stable/active/export/bin'
 export PATH=$PATH:/usr/local/go/bin
