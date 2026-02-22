@@ -43,7 +43,7 @@ export ZSH_ENV_HOME=$HOME/
 export XDG_CONFIG_HOME=$HOME/.config/
 
 
-export PATH=$PATH:"/opt/mssql-tools/bin/"
+export PATH=$PATH:"/opt/mssql-tools18/bin/"
 
 ## ZSH options
 setopt functionargzero
