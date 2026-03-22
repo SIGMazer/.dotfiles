@@ -32,8 +32,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xset s 3600 3600
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh 
 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -198,3 +197,4 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym Mod1+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:.*us' && setxkbmap -layout ar || setxkbmap -layout us"
 
 bindsym $mod+grave exec --no-startup-id "circle2search"
+bindsym $mod+F12 exec --no-startup-id ~/.config/i3/scripts/toggle_lock.sh
